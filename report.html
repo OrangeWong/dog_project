@@ -13570,7 +13570,8 @@ $$<p>Here, <code>nb_samples</code> is the number of samples, or number of images
 <p>We have imported some Python modules to get you started, but feel free to import as many modules as you need.  If you end up getting stuck, here's a hint that specifies a model that trains relatively fast on CPU and attains &gt;1% test accuracy in 5 epochs:</p>
 <p><img src="images/sample_cnn.png" alt="Sample CNN"></p>
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> There are three CNN layers, one global averaging pooling, and dense layer in the architecture. The CNN contains filter with 'valid' padding (no extension on the data) and 'relu' activation function, max pooling, and dropout. 
+The filters are used to extract the features of the images, from the spatial dimensions of the tensors. As the network getting deeper, the information is concentrated and more filters are required to capture the high level features. Therefore, the number of filters used is increased in this setting. Max pooling is used to downsize the input data (reducing the size of data dimensions) by using the statistics of the sub-region (the max in our case) to represent the information contained in the sub-region. This reduces the computational complexity and the effect of overfitting. Also, dropout is applied to prevent overfitting during training processes. The final global average pooling layer is also used to minimize overfitting by reducing the dimensions in the model.</p>
 
 </div>
 </div>
